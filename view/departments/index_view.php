@@ -33,8 +33,45 @@ $namePage = 'Department';
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
-                    <h5> This is Department</h5>
-                    <a class="btn btn-primary" href="index.php?c=department&m=add">create new Department</a>
+                    <a class="btn btn-primary" href="index.php?c=department&m=add"> Create new Department</a>
+                    <?php if($state === 'delete_success'): ?>
+                        <div class="my-3 text_success">Delete department successfully !</div>
+                    <?php elseif($state === 'delete_failure'): ?>
+                        <div class="my-3 text-danger">Delete department failure !</div>
+                    <?php endif; ?>
+                    <table class="mt-3 table table-bordered tables-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Logo</th>
+                                <th>Leader</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th width="10%" class="text-center" colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($department as $key => $item): ?>
+                                <tr>
+                                    <td><?= $item['id'];?></td>
+                                    <td><?= $item['name'];?></td>
+                                    <td width="10%">
+                                        <img src="public/uploads/img/<?= $item['logo']; ?>" alt="<?= $item['name'];?>" class="img-fluid">
+                                    </td>
+                                    <td><?= $item['leader'];?></td>
+                                    <td><?= $item['beginning_date'];?></td>
+                                    <td><?= $item['status'] == 1 ? 'Active' : 'Deactive';?></td>
+                                    <td>
+                                        <a href="index.php?c=department&m=edit&id=<?= $item['id'];?>" class="btn btn-info brn-sm">edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="index.php?c=department&m=delete&id=<?= $item['id'];?>" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div><!-- /.container-fluid -->

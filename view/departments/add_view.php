@@ -3,7 +3,8 @@ if (!defined('APP_ROOT_PATH')) {
     die ('Can not access');
 }
 
-$namePage = 'Department';
+$namePage = 'Create Department';
+$errorAdd = $_SESSION['error_department'] ?? null;
 ?>
 <!-- load header view -->
 <?php require APP_PATH_VIEW . "partials/header_view.php"; ?>
@@ -15,7 +16,7 @@ $namePage = 'Department';
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">creat Department</h1>
+                    <h1 class="m-0">Create Department</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -40,47 +41,55 @@ $namePage = 'Department';
                             </h5>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="index.php?c=department&m=handle-add">
+                            <form enctype="multipart/form-data" method="post"
+                                action="index.php?c=department&m=handle-add">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label>Name</label>
-                                            <input type="text" class="form-control" name="name">
+                                            <input type="text" class="form-control" name="name" />
+                                            <?php if (!empty ($errorAdd['name'])): ?>
+                                                <span class="text-danger">
+                                                    <?= $errorAdd['name'] ?>
+                                                </span>
+                                            <?php endif; ?>
                                         </div>
-                                        <?php if(!empty($errorAdd['name'])):?>
-                                            <span class="text-danger"><?= $errorAdd['name'] ?></span>
-                                        <?php endif; ?>
                                         <div class="form-group mb-3">
                                             <label>Name's Leader</label>
-                                            <input type="text" class="form-control" name="leader">
+                                            <input type="text" class="form-control" name="leader" />
+                                            <?php if (!empty ($errorAdd['leader'])): ?>
+                                                <span class="text-danger">
+                                                    <?= $errorAdd['leader'] ?>
+                                                </span>
+                                            <?php endif; ?>
                                         </div>
-                                        <?php if(!empty($errorAdd['leader'])):?>
-                                            <span class="text-danger"><?= $errorAdd['name'] ?></span>
-                                        <?php endif; ?>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
-                                            <label>Status</label>
-                                            <select name="status" class="form-control">
+                                            <label> Status </label>
+                                            <select class="form-control" name="status">
                                                 <option value="1">Active</option>
                                                 <option value="0">Deactive</option>
                                             </select>
                                         </div>
-                                        <!-- <?php if(!empty($errorAdd['name'])):?>
-                                            <span class="text-danger"><?= $errorAdd['name'] ?></span>
-                                        <?php endif; ?> -->
                                         <div class="form-group mb-3">
-                                            <label> Date</label>
-                                            <input type="date" class="form-control" name="beginning-date">
+                                            <label> Date </label>
+                                            <input type="date" class="form-control" name="beginning_date" />
                                         </div>
-                                        <!-- <?php if(!empty($errorAdd['name'])):?>
-                                            <span class="text-danger"><?= $errorAdd['name'] ?></span>
-                                        <?php endif; ?> -->
+                                        <div class="form-group_mb-3">
+                                            <label for="">logo</label>
+                                            <input type="file" class="form-control" name="logo">
+                                            <?php if (!empty ($errorAdd['logo'])): ?>
+                                                <span class="text-danger">
+                                                    <?= $errorAdd['logo']; ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-sm-6">
-                                        <button class="btn btn-primary btn-lg" type="submit" name="btnSave">Save
+                                    <div class="col-sm-12 col-md-6">
+                                        <button class="btn btn-primary btn-lg" type="submit" name="btnSave"> Save
                                         </button>
                                     </div>
                                 </div>
