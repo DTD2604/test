@@ -8,15 +8,15 @@ $modulePage = strtolower($modulePage);
 <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-            <img src="public/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <div style="display: flex; justify-content: center; align-items: center;" class="image">
+            <img src="public/img/favicon.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
             <a href="#" class="pull-left">
                 <?= getSessionUsername(); ?>
             </a>
-            <form class="d-inline-block" method="post" action="index.php?c=login&m=logout">
-                <button type="submit" class="btn btn-primary" name="btnLogout"> logout </button>
+            <form class="d-inline-block justify-content-center" method="post" action="index.php?c=login&m=logout">
+                <button type="submit" class="btn btn-primary " name="btnLogout"> logout </button>
             </form>
         </div>
     </div>
@@ -55,10 +55,7 @@ $modulePage = strtolower($modulePage);
                 </a>
             </li>
             <li class="nav-item">
-                <a
-                    href="index.php?c=course"
-                    class="nav-link <?= $modulePage == 'course' ? 'active' : null; ?>"
-                >
+                <a href="index.php?c=course" class="nav-link <?= $modulePage == 'course' ? 'active' : null; ?>">
                     <i class="nav-icon fas fa-copy"></i>
                     <p>
                         Courses

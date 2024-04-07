@@ -3,16 +3,20 @@ if (!defined('APP_ROOT_PATH')) {
     die('Can not access');
 }
 ?>
+<link rel="shortcut icon" href="public/uploads/img/favicon.png" type="x-icon">
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Management Student - Login</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -21,7 +25,7 @@ if (!defined('APP_ROOT_PATH')) {
 
 <body class="hold-transition sidebar-mini">
     <?php
-        $state = trim($_GET['state'] ?? null);
+    $state = trim($_GET['state'] ?? null);
     ?>
     <div class="container-fluid">
         <div class="row">
@@ -29,13 +33,13 @@ if (!defined('APP_ROOT_PATH')) {
                 <div class="card card-primary mt-3">
                     <div class="card-header">
                         <h3 class="card-title">Login</h3>
-                        <br/>
-                        <?php if($state === 'error'): ?>
+                        <br />
+                        <?php if ($state === 'error'): ?>
                             <p class="text-danger text-bold text-center">
                                 Enter username and password, please !
                             </p>
                         <?php endif; ?>
-                        <?php if($state === 'fail'): ?>
+                        <?php if ($state === 'fail'): ?>
                             <p class="text-danger text-bold text-center">
                                 Account invalid.
                             </p>

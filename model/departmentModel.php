@@ -86,6 +86,8 @@ function getAllDataDepartments($keyword = null){
             }
         }
     }
+    // print_r($data);
+    // die;
     disconnectionDb($db);
     return $data;
 }

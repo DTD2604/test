@@ -5,4 +5,4 @@ const APP_PATH_CONTROLLER = 'controller/';
 const APP_PATH_MODEL = 'model/';
 const APP_ROOT_PATH = 'index.php';
 
-const LIMIT_ITEM_PAGE = 2;
+const LIMIT_ITEM_PAGE = 3;

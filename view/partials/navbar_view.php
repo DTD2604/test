@@ -13,6 +13,9 @@ if (!defined('APP_ROOT_PATH')) {
             <a href="index.php?c=dashboard" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <span style="padding:8px 0px;" class="nav-link">/</span>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link"><?= $namePage ?? null; ?></a>
         </li>
     </ul>
